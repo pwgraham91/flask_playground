@@ -2,6 +2,7 @@ import os
 from flask import Flask, url_for, render_template, request, send_from_directory
 from werkzeug import secure_filename
 
+
 UPLOAD_FOLDER = './uploads/'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
@@ -68,5 +69,8 @@ if __name__ == '__main__':
     app.run(debug=True)
     # show the user profile for that user
 
-url_for('static/css', filename='my.css')
-url_for('static/img', filename='chairs.jpeg')
+for css_file in os.listdir('./static/css/'):
+    url_for('static/css', filename=css_file)
+
+for img_file in os.listdir('./static/img/'):
+    url_for('static/img', filename=img_file)

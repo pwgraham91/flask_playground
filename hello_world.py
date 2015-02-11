@@ -74,3 +74,6 @@ for css_file in os.listdir('./static/css/'):
 
 for img_file in os.listdir('./static/img/'):
     url_for('static/img', filename=img_file)
+
+for upload_file in os.listdir('./uploads/'):
+    url_for('uploads', filename=upload_file)
